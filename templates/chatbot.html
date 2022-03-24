@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Practice 1 - Chatbot</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>Chatbot</h1>
+    {% if messages %}
+    <table class="myTable">
+        <tbody>{% for data in messages %}
+            <tr>
+                <td>{{ data.name }}: </td>
+                <td>{{ data.message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <div class="content">
+        <form method="post">
+            <div>
+                <b><label for="name">Name</label></b>
+            </div>
+            <div>
+                <input type="text" name="name" value="You">
+            </div>
+            <div>
+                <b><label for="message">Message</label></b>
+            </div>
+            <div>
+                <input type="text" name="message" placeholder="Your message"></input>
+            </div>
+            <div>
+            <button type="submit">Send</button></div>
+            <button type="submit" name="deleteAll">Delete all messages</button>
+        </form>
+    </div>
+    <p><a href="/">Home</a></p>
+</body>
+
+</html>

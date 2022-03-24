@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Practice 1 - Notebook</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>Notebook</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="content">
+        <form method="post">
+            <div>
+                <b><label for="title">Title</label></b>
+            </div>
+            <div>
+                <input type="text" name="title" placeholder="Your title"></input>
+            </div>
+            <div>
+                <b><label for="text">Text</label></b>
+            </div>
+            <div>
+                <textarea type="textarea" name="text" placeholder="Your text"></textarea>
+            </div>
+            <div>
+            <button type="submit">Create</button></div>
+            <button type="submit" name="deleteAll">Delete all notebooks</button>
+        </form>
+    </div>
+    {% if numberOfNotebooks > 0 %}
+    <table class="myTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>{% for data in notebooks %}
+            <tr>
+                <td>{{ data.title }}</td>
+                <td>{{ data.text }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if numberOfNotebooks == 0 %}
+    <h1>There are no notebooks stored</h1>
+    {% endif %}
+    <p><a href="/">Home</a></p>
+</body>
+
+</html>
