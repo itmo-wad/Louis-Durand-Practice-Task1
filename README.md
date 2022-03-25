@@ -20,6 +20,6 @@ Running MongoDB on localhost:8080 with created database `practice` and collectio
 
 ## Run
 
-`python src/app.py`
+`python app.py`
 or 
 `flask run`
